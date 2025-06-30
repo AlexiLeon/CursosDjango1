@@ -1,0 +1,72 @@
+{% extends "encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Cursos{% endblock %}
+
+
+
+{% block titulo_principal %}
+<h1 class="display-6 fw-bold text-success text-center">Registrar <span class="text-dark">Curso</span></h1>
+{% endblock %}
+
+{% block url %}
+<div class="bg-light py-2 px-4 mb-4 border-start border-5 border-success rounded">
+  <nav>
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item">
+        <a href="{% url 'Cursos' %}" class="text-decoration-none text-success">
+          {% if request.path == '/' %}
+            Cursos
+          {% else %}
+            Cursos{{ request.path }}
+          {% endif %}
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<section class="container">
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Registro de Cursos</h4>
+      <p class="text-muted">Completa los datos para registrarte a un nuevo curso.</p>
+
+      <form action="#" method="post" class="row g-3">
+        {% csrf_token %}
+
+        <div class="col-md-6">
+          <label class="form-label">Clave del curso:</label>
+          <input type="text" class="form-control" placeholder="Ej: Curso19">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Nombre del curso:</label>
+          <input type="text" class="form-control" placeholder="Ej: Introducción a Django">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Nivel:</label>
+          <select class="form-select" aria-label="Nivel del curso">
+            <option selected disabled>Selecciona un nivel</option>
+            <option>Basico</option>
+            <option>Intermedio</option>
+            <option>Avanzado</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Duración (hrs):</label>
+          <input type="number" class="form-control" min="1" placeholder="Horas estimadas">
+        </div>
+
+        <div class="col-12 text-end mt-3">
+          <button type="submit" class="btn btn-success">Guardar Curso</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

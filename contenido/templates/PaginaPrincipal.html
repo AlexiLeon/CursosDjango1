@@ -1,0 +1,64 @@
+{% extends "encabezado.html" %}
+
+{% load static %}
+
+{% block titulo %}Inicio{% endblock %}
+
+
+
+{% block titulo_principal %}
+<h1 class="display-5 fw-bold text-primary">Bienvenido a <span class="text-dark">Cursos del Django</span></h1>
+{% endblock %}
+
+{% block url %}
+<div class="bg-light py-2 px-4 mb-4 border-start border-5 border-primary rounded">
+  <nav>
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item">
+        <a href="{% url 'Principal' %}" class="text-decoration-none text-primary">
+          {% if request.path == '/' %}
+            Inicio
+          {% else %}
+            Inicio{{ request.path }}
+          {% endif %}
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<section class="container">
+  <div class="bg-white p-5 rounded shadow-sm mb-4">
+    <h3 class="mb-3 text-success">Bienvenido a este Curso de Django</h3>
+    <p class="text-muted fs-5">
+      Explora nuestros recursos para aprender desarrollo web de forma profesional.
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="card border-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">¿Qué aprenderás?</h5>
+          <p class="card-text">
+            Desde lo más básico de HTML y CSS, hasta estructuras avanzadas con Django. Ideal para principiantes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <div class="card border-success h-100">
+        <div class="card-body">
+          <h5 class="card-title">Recursos adicionales</h5>
+          <p class="card-text">
+            Documentación, ejemplos en vivo, y tips para mejorar tus habilidades en desarrollo web moderno.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

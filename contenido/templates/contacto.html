@@ -1,0 +1,57 @@
+{% extends "encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Contacto{% endblock %}
+
+
+
+{% block titulo_principal %}
+<h1 class="display-6 fw-bold text-primary text-center">Contáctanos <span class="text-dark">Soporte</span></h1>
+{% endblock %}
+
+{% block url %}
+<div class="bg-light py-2 px-4 mb-4 border-start border-5 border-primary rounded">
+  <nav>
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item">
+        <a href="{% url 'Contacto' %}" class="text-decoration-none text-primary">
+          {% if request.path == '/' %}
+            Contacto
+          {% else %}
+            Contacto{{ request.path }}
+          {% endif %}
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<section class="container">
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Contáctanos</h4>
+      <p class="text-muted">Ingrese su información para enviarnos un mensaje.</p>
+
+      <form action="#" method="post" class="row g-3">
+        {% csrf_token %}
+
+        <div class="col-md-12">
+          <label class="form-label">Nombre:</label>
+          <input type="text" class="form-control" placeholder="Tu nombre completo">
+        </div>
+
+        <div class="col-md-12">
+          <label class="form-label">Mensaje:</label>
+          <textarea class="form-control" rows="6" placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+
+        <div class="col-12 text-end mt-3">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

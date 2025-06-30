@@ -1,0 +1,19 @@
+{% extends "encabezado.html" %}
+
+{% block titulo %}Lista de Cursos{% endblock %}
+{% block contenido %}
+  <div class="row">
+    {% for curso in cursos %}
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="{{ curso.imagen.url }}" class="card-img-top" alt="{{ curso.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ curso.nombre }}</h5>
+            <p class="card-text">{{ curso.descripcion|truncatewords:15 }}</p>
+            <p class="card-text"><small class="text-muted">{{ curso.nivel }} - {{ curso.duracion_horas }} hrs</small></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
