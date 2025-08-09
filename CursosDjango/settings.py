@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'CursosDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '3308',
+        'NAME': 'UTM221075TI$default',
+        'USER': 'UTM221075TI',
+        'PASSWORD': '123456',
+        'HOST': 'UTM221075TI.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
 
