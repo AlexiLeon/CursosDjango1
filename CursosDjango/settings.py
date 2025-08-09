@@ -98,7 +98,7 @@ DATABASES = {
         'USER': 'UTM221075TI',
         'PASSWORD': '123456',
         'HOST': 'UTM221075TI.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
+        'PORT': '3308',
     }
 }
 
