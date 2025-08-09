@@ -1,3 +1,4 @@
+#hola
 Django==5.2.3
 django-ckedito==6.7.3
 django-jazzmin==3.0.1
