@@ -1,0 +1,17 @@
+{% extends "encabezado.html" %}
+
+{% block titulo %}Eliminar Curso{% endblock %}
+
+{% block contenido %}
+<form method="POST">
+  {% csrf_token %}
+
+  <div class="alert alert-danger">
+    <h4 class="alert-heading">Eliminando Curso</h4>
+    <p>¿Estás seguro de que deseas <strong>eliminar</strong> el curso <strong>{{ object.nombre }}</strong>?</p>
+  </div>
+
+  <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+  <a href="{% url 'cursos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

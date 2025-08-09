@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from django.contrib import admin
 from .models import Curso
+from .models import Actividad
 
 @admin.register(Curso)
 class CursoAdmin(admin.ModelAdmin):
@@ -23,7 +24,18 @@ class CursoAdmin(admin.ModelAdmin):
     )
     readonly_fields = ('creado_en',)
 
+    
+
+class ActividadAdmin(admin.ModelAdmin):
+    list_display = ('clave', 'curso', 'fecha_creacion')
+    search_fields = ('clave', 'curso__nombre')
+    list_filter = ('curso',)
+    date_hierarchy = 'fecha_creacion'
+    readonly_fields = ('fecha_creacion',)
+
+
+
 # Cambiar nombre de la app en el panel
 admin.site.site_header = 'CONVOCATORIAS'
 admin.site.index_title = 'Cursos'
-
+admin.site.register(Actividad, ActividadAdmin)

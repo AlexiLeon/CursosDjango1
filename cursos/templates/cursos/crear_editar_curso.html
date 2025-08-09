@@ -1,0 +1,60 @@
+{% extends "encabezado.html" %}
+
+{% block titulo %}Lista de Cursos{% endblock %}
+
+{% block contenido %}
+<div class="page-header">
+    <div class="page-title">
+        <h3>CURSOS
+    </div>
+</div>
+
+<!-- Tabla de Cursos -->
+<div class="panel panel-default">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Clave</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Nivel</th>
+                    <th class="text-center">Duración</th>
+                    <th class="text-center">Costo (MXN)</th>
+                    <th class="text-center">Creado</th>
+                    <th class="text-center">Imagen</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+                <tr>
+                    <td class="text-center">{{ curso.clave }}</td>
+                    <td class="text-center">{{ curso.nombre }}</td>
+                    <td class="text-center">{{ curso.nivel }}</td>
+                    <td class="text-center">{{ curso.duracion_horas }}</td>
+                    <td class="text-center">${{ curso.costo }}</td>
+                    <td class="text-center">{{ curso.creado_en|date:"d M Y" }}</td>
+                    <td class="text-center">
+                        {% if curso.imagen %}
+                            <img src="{{ curso.imagen.url }}" width="60">
+                        {% else %}
+                            Sin imagen
+                        {% endif %}
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'consulta_curso' curso.id %}" class="btn btn-outline-info btn-sm">
+    <i class="bi bi-pencil-square"></i> Editar
+  </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /Tabla de Cursos -->
+{% endblock %}

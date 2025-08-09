@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contenido',
     'cursos',
+    'ckeditor',
 ]
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Panel de Administración",
+    "site_header": "Mi Proyecto Django",
+    "welcome_sign": "Bienvenido al panel",
+    "copyright": "Alexis Dev",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,13 +84,23 @@ WSGI_APPLICATION = 'CursosDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+}'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '3308',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -105,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -127,3 +146,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+#CKEDITOR
+CKEDITOR_CONFIGS ={
+    'default':{'toolbar':'Custom',
+        'toolbar_Custom':[
+            ['Bold', 'Italic', 'Underline'],
+            ['Link', 'Unlink']
+        ]
+    }
+}

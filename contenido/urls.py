@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.pagina_principal, name='PaginaPrincipal'),  # Página de inicio
     path('cursos/', views.cursos, name='cursos'),  # Página de cursos
     path('contacto/', views.contacto, name='contacto'),  # Página de contacto
+    
 ]

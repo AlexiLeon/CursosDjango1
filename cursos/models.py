@@ -1,6 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
-from django.db import models
 
 class Curso(models.Model):
     clave = models.CharField(max_length=10)
@@ -23,3 +23,21 @@ class Curso(models.Model):
         ordering = ['creado_en']
         verbose_name = 'Curso'
         verbose_name_plural = 'Cursos'
+
+
+
+class Actividad(models.Model):
+    clave = models.CharField(max_length=20, unique=True)
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    descripcion = RichTextField(verbose_name='Descripción')
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Actividad"
+        verbose_name_plural = "Actividades"
+        ordering = ['fecha_creacion']
+
+    def __str__(self):
+        return f"{self.clave} - {self.curso.nombre}"
+
+
