@@ -34,7 +34,7 @@
       <h4 class="card-title mb-3">Contáctanos</h4>
       <p class="text-muted">Ingrese su información para enviarnos un mensaje.</p>
 
-      <form action="#" method="post" class="row g-3">
+       <form action="#" method="post" class="row g-3" onsubmit="mostrarAlerta(event)">
         {% csrf_token %}
 
         <div class="col-md-12">
@@ -54,4 +54,11 @@
     </div>
   </div>
 </section>
+<script>
+  function mostrarAlerta(event) {
+    event.preventDefault(); // Evita el envío real (solo para prueba)
+    alert("¡Mensaje enviado con éxito!");
+    // event.target.submit(); // Descomenta esto para enviar el formulario después
+  }
+</script>
 {% endblock %}
