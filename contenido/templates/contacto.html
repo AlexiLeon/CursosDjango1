@@ -58,7 +58,11 @@
   function mostrarAlerta(event) {
     event.preventDefault(); // Evita el envío real (solo para prueba)
     alert("¡Mensaje enviado con éxito!");
-    // event.target.submit(); // Descomenta esto para enviar el formulario después
+    
+    // Limpia los campos del formulario
+    event.target.reset();  // ¡Esta línea es clave!
+    
+    // event.target.submit(); // Descomenta si quieres enviar el formulario después
   }
 </script>
 {% endblock %}
